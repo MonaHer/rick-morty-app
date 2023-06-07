@@ -16,7 +16,6 @@ const page = 1;
 const searchQuery = "";
 
 async function fetchCharacters() {
-  console.log("fetch");
   try {
     const response = await fetch(url);
 
