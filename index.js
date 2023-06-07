@@ -15,8 +15,6 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-fetchCharacters();
-
 async function fetchCharacters() {
   console.log("fetch");
   try {
@@ -36,3 +34,4 @@ async function fetchCharacters() {
     console.error("An Error occured");
   }
 }
+fetchCharacters();
