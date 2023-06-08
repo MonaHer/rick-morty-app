@@ -19,7 +19,7 @@ fetchCharacters();
 
 async function fetchCharacters() {
   try {
-    const url = `https://rickandmortyapi.com/api/character?page=${page}`;
+    const url = `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`;
     const response = await fetch(url);
 
     if (response.ok) {
@@ -50,4 +50,11 @@ nextButton.addEventListener("click", () => {
     page++;
     fetchCharacters();
   }
+});
+
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+  searchQuery = event.target.elements.query.value;
+  page = 1;
+  fetchCharacters();
 });
