@@ -5,13 +5,18 @@ export function createSearchBar() {
   const searchBarInput = document.createElement("input");
   searchBarInput.classList.add("search-bar__input");
   searchBarInput.setAttribute("type", "text");
+  searchBar.append(searchBarInput);
 
   const searchBarButton = document.createElement("button");
   searchBarButton.classList.add("search-bar__button");
+  searchBar.append(searchBarButton);
 
   const searchBarIcon = document.createElement("img");
   searchBarIcon.setAttribute("src", "assets/magnifying-glass.png");
   searchBarIcon.classList.add("search-bar__icon");
+  searchBar.append(searchBarButton);
+
+  return searchBar;
 }
 /*searchBar.addEventListener("submit", (event) => {
     event.preventDefault();
