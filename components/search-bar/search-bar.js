@@ -14,7 +14,7 @@ export function createSearchBar() {
   const searchBarIcon = document.createElement("img");
   searchBarIcon.setAttribute("src", "assets/magnifying-glass.png");
   searchBarIcon.classList.add("search-bar__icon");
-  searchBar.append(searchBarButton);
+  searchBarButton.append(searchBarIcon);
 
   return searchBar;
 }
