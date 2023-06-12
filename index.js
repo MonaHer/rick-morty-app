@@ -1,6 +1,5 @@
 import createCharacterCard from "./components/card/card.js";
 import { createButton } from "./components/nav-button/nav-button.js";
-import { createNextButton } from "./components/nav-button/nav-button.js";
 import { createPagination } from "./components/nav-pagination/nav-pagination.js";
 import { createSearchBar } from "./components/search-bar/search-bar.js";
 
@@ -39,12 +38,37 @@ async function fetchCharacters() {
   }
 }
 
-const prevButton = createButton();
-const nextButton = createNextButton();
+const prevButton = createButton({
+  text: "previous",
+  onClick: () => {
+    if (page > 1) {
+      page--;
+      pagination.textContent = `${page}/${maxPage}`;
+      fetchCharacters();
+    }
+  },
+});
+
+const nextButton = createButton({
+  text: "next",
+  onClick: () => {
+    if (page < maxPage) {
+      page++;
+      fetchCharacters();
+    }
+  },
+});
+
 const pagination = createPagination();
-const searchBar = createSearchBar();
+
+const searchBar = createSearchBar({
+  onSubmit: (event) => {
+    event.preventDefault();
+    searchQuery = event.target.elements.query.value;
+    page = 1;
+    fetchCharacters();
+  },
+});
 
 searchBarContainer.append(searchBar);
-
 navigation.append(prevButton, pagination, nextButton);
-console.log("hi");
